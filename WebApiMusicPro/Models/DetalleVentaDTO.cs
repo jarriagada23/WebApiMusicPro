@@ -2,10 +2,16 @@
 
 namespace WebApiMusicPro.Models
 {
-    public class VentaDTO
+    public class DetalleVentaDTO
     {
         [Key]
+        public int idDetalleVenta { get; set; }
+
         public int idVenta { get; set; }
+
+        public int idProducto { get; set; }
+
+        public int cantidad { get; set; }
 
         public int idUsuario { get; set; }
 
@@ -13,8 +19,5 @@ namespace WebApiMusicPro.Models
 
         public DateTime fecha { get; set; }
 
-        public string nombreUsuario { get; set; }
-
-        List<DetalleVentaDTO> detalleVentas { get; set; }
     }
 }

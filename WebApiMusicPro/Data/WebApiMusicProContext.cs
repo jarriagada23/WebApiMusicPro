@@ -29,5 +29,7 @@ namespace WebApiMusicPro.Data
         public DbSet<WebApiMusicPro.Models.VentaDTO>? VentaDTO { get; set; }
 
         
+
+        
     }
 }
