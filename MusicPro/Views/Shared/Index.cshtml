@@ -1,0 +1,54 @@
+﻿
+@model  List<MusicPro.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 class="text-center">Usuarios</h2>
+
+<div class="container">
+    <!-- Boton Create  -->
+    <a asp-action="Create" asp-controller="Usuario" class="btn btn-success "><i class="fas fa-plus"></i> Add</a>
+    <br />
+    <br />
+
+
+    <!-- Table employees -->
+    <div class="row">
+        <div class="col-md-12">
+
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Rut</th>
+                        <th>Nombre</th>
+                         <th>Correo</th>
+                        <th>Contraseña</th>
+                        <th>Direccion</th>
+                         <th>Telefono</th>
+                        <th>Tipo</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <!-- Recorro el modelo para imprimir datos -->
+                @foreach (var element in Model)
+                {
+                    <tr>
+                        <td>@element.idUsuario </td>
+                        <td>@element.Rut</td>
+                        <td>@element.nombre</td>
+                        <td>@element.correo </td>
+                        <td>@element.contraseña</td>
+                        <td>@element.direccion</td>
+                        <td>@element.telefono </td>
+                        <td>@element.tipo</td>
+                        <td>@element.estado</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+
+</div>

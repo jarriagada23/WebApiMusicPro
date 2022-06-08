@@ -1,0 +1,53 @@
+﻿@model Usuario
+
+@{
+    ViewBag.Title = "Actualizar Usuario";
+
+}
+<h2 style="color: #FFFFFF">Nuevo Usuario </h2>
+<hr />
+
+<form method="post" style="color: #FFFFFF" action="@Url.Action("ActualizarUsuario","Usuarios")">
+    <div class="form-group" style="display: none" >
+        <label>ID</label>
+        @Html.TextBoxFor(x=> x.idUsuario, new { @class ="form-control", @readonly="readonly"})
+     </div>
+    <div class="form-group" >
+        <label>Rut</label>
+        @Html.TextBoxFor(x=> x.Rut, new { @class ="form-control", @readonly="readonly"})
+     </div>
+     <div class="form-group" >
+        <label>nombre</label>
+        @Html.TextBoxFor(x=> x.nombre, new { @class ="form-control"})
+     </div>
+     <div class="form-group" >
+        <label>correo</label>
+        @Html.TextBoxFor(x=> x.correo, new { @class ="form-control"})
+     </div>
+     <div class="form-group" >
+        <label>contraseña</label>
+        @Html.TextBoxFor(x=> x.contraseña, new { @class ="form-control"})
+     </div>
+     <div class="form-group" >
+        <label>direccion</label>
+        @Html.TextBoxFor(x=> x.direccion, new { @class ="form-control"})
+     </div>
+     <div class="form-group" >
+        <label>telefono</label>
+        @Html.TextBoxFor(x=> x.telefono, new { @class ="form-control"})
+     </div>
+     <div class="form-group" >
+        <label>tipo</label>
+        @Html.TextBoxFor(x=> x.tipo, new { @class ="form-control"})
+     </div>
+     <div class="form-group" >
+        <label>estado</label>
+        @Html.TextBoxFor(x=> x.estado, new { @class ="form-control"})
+     </div>
+     <hr />
+     <div class="form-group" >
+        <input type="submit" class="btn btn-success" value="Enviar" />
+        <a class="btn btn-primary " href="@Url.Action("ListarUsuarios","Usuarios")">Regresar</a>
+     </div>
+
+</form>

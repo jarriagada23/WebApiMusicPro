@@ -86,10 +86,10 @@ namespace WebApiMusicPro.Controllers
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
-          if (_context.Usuario == null)
-          {
-              return Problem("Entity set 'WebApiMusicProContext.Usuario'  is null.");
-          }
+            if (_context.Usuario == null)
+            {
+                return Problem("Entity set 'WebApiMusicProContext.Usuario'  is null.");
+            }
             _context.Usuario.Add(usuario);
             await _context.SaveChangesAsync();
 
