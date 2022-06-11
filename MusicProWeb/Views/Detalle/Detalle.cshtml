@@ -1,0 +1,30 @@
+﻿@model List<Producto>
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+} 
+
+    <div class="h5 font-weight-bold text-center mb-3" style="color: #FFFFFF">Listar</div>
+        <div class="card-body">                
+               <div class="row row-cols-1 row-cols-md-3 g-4">
+                   <div class="col">
+                       <div class="card">
+                        <img src="" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@</h5>
+             <div class="small mb-1">@Html.DisplayTextFor(model => model</div>
+            <p class="card-text">@item.marca</p>
+            <p class="card-text">$@item.precio</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <a class="btn btn-success" asp-area="" asp-controller="Detalle" asp-action="Detalle">Detalle de producto</a>
+             
+              </div>
+               <a href="#" class="btn btn-success">Agregar a carrito</a>
+            </div>
+          </div>
+        </div>
+      </div>
+                
+            
+        </div>

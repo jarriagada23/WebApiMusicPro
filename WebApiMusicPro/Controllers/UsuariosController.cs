@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApiMusicPro.Data;
 using WebApiMusicPro.Models;
@@ -25,10 +20,10 @@ namespace WebApiMusicPro.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuario()
         {
-          if (_context.Usuario == null)
-          {
-              return NotFound();
-          }
+            if (_context.Usuario == null)
+            {
+                return NotFound();
+            }
             return await _context.Usuario.ToListAsync();
         }
 
@@ -36,10 +31,10 @@ namespace WebApiMusicPro.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Usuario>> GetUsuario(int id)
         {
-          if (_context.Usuario == null)
-          {
-              return NotFound();
-          }
+            if (_context.Usuario == null)
+            {
+                return NotFound();
+            }
             var usuario = await _context.Usuario.FindAsync(id);
 
             if (usuario == null)

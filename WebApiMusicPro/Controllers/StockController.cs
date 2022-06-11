@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApiMusicPro.Data;
 using WebApiMusicPro.Models;
@@ -25,10 +20,10 @@ namespace WebApiMusicPro.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Stock>>> GetStock()
         {
-          if (_context.Stock == null)
-          {
-              return NotFound();
-          }
+            if (_context.Stock == null)
+            {
+                return NotFound();
+            }
             return await _context.Stock.ToListAsync();
         }
 
@@ -36,10 +31,10 @@ namespace WebApiMusicPro.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Stock>> GetStock(int id)
         {
-          if (_context.Stock == null)
-          {
-              return NotFound();
-          }
+            if (_context.Stock == null)
+            {
+                return NotFound();
+            }
             var stock = await _context.Stock.FindAsync(id);
 
             if (stock == null)
@@ -86,10 +81,10 @@ namespace WebApiMusicPro.Controllers
         [HttpPost]
         public async Task<ActionResult<Stock>> PostStock(Stock stock)
         {
-          if (_context.Stock == null)
-          {
-              return Problem("Entity set 'WebApiMusicProContext.Stock'  is null.");
-          }
+            if (_context.Stock == null)
+            {
+                return Problem("Entity set 'WebApiMusicProContext.Stock'  is null.");
+            }
             _context.Stock.Add(stock);
             await _context.SaveChangesAsync();
 

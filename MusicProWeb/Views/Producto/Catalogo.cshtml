@@ -1,0 +1,45 @@
+﻿
+
+    @model List<Producto>
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="h5 font-weight-bold text-center mb-3" style="color: #FFFFFF">Listar</div>
+        <div class="card-body">
+            <hr />
+            <table style="color: #FFFFFF" class="table table-responsive ">
+                <thead>
+                    <tr>
+                    
+                        <th>Rut</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Contraseña</th>
+                        <th>Direccion</th>
+                        <th>Telefono</th>
+                        
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.idProducto</td>
+                        <td>@item.nombre</td>
+                        <td>@item.modelo</td>
+                        <td>@item.marca</td>
+                        <td>@item.precio</td>
+                        <td>@item.categoria</td>
+                        
+                        <td>
+                            
+                        </td>
+                    </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>

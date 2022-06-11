@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApiMusicPro.Data;
 using WebApiMusicPro.Models;
@@ -25,10 +20,10 @@ namespace WebApiMusicPro.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Producto>>> GetProducto()
         {
-          if (_context.Producto == null)
-          {
-              return NotFound();
-          }
+            if (_context.Producto == null)
+            {
+                return NotFound();
+            }
             return await _context.Producto.ToListAsync();
         }
 
@@ -36,10 +31,10 @@ namespace WebApiMusicPro.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Producto>> GetProducto(int id)
         {
-          if (_context.Producto == null)
-          {
-              return NotFound();
-          }
+            if (_context.Producto == null)
+            {
+                return NotFound();
+            }
             var producto = await _context.Producto.FindAsync(id);
 
             if (producto == null)
@@ -86,10 +81,10 @@ namespace WebApiMusicPro.Controllers
         [HttpPost]
         public async Task<ActionResult<Producto>> PostProducto(Producto producto)
         {
-          if (_context.Producto == null)
-          {
-              return Problem("Entity set 'WebApiMusicProContext.Producto'  is null.");
-          }
+            if (_context.Producto == null)
+            {
+                return Problem("Entity set 'WebApiMusicProContext.Producto'  is null.");
+            }
             _context.Producto.Add(producto);
             await _context.SaveChangesAsync();
 

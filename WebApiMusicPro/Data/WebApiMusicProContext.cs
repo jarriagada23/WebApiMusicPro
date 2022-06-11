@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using WebApiMusicPro.Models;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace WebApiMusicPro.Data
 {
     public class WebApiMusicProContext : DbContext
     {
-        public WebApiMusicProContext (DbContextOptions<WebApiMusicProContext> options)
+        public WebApiMusicProContext(DbContextOptions<WebApiMusicProContext> options)
             : base(options)
         {
         }
@@ -28,8 +23,8 @@ namespace WebApiMusicPro.Data
 
         public DbSet<WebApiMusicPro.Models.VentaDTO>? VentaDTO { get; set; }
 
-        
 
-        
+
+
     }
 }

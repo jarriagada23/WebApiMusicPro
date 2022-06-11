@@ -13,7 +13,7 @@ namespace WebApiMusicPro.Models
 
         public int idProductostock { get; set; }
 
-       
-     
+
+
     }
 }

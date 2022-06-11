@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApiMusicPro.Data;
 using WebApiMusicPro.Models;
@@ -40,7 +35,7 @@ namespace WebApiMusicPro.Controllers
                             fecha = venta.fecha,
                             nombreUsuario = usuario.nombre
 
-                            
+
 
 
 
@@ -67,10 +62,10 @@ namespace WebApiMusicPro.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<VentaDTO>> GetVentaDTO(int id)
         {
-          if (_context.VentaDTO == null)
-          {
-              return NotFound();
-          }
+            if (_context.VentaDTO == null)
+            {
+                return NotFound();
+            }
             var ventaDTO = await _context.VentaDTO.FindAsync(id);
 
             if (ventaDTO == null)
@@ -117,10 +112,10 @@ namespace WebApiMusicPro.Controllers
         [HttpPost]
         public async Task<ActionResult<VentaDTO>> PostVentaDTO(VentaDTO ventaDTO)
         {
-          if (_context.VentaDTO == null)
-          {
-              return Problem("Entity set 'WebApiMusicProContext.VentaDTO'  is null.");
-          }
+            if (_context.VentaDTO == null)
+            {
+                return Problem("Entity set 'WebApiMusicProContext.VentaDTO'  is null.");
+            }
             _context.VentaDTO.Add(ventaDTO);
             await _context.SaveChangesAsync();
 

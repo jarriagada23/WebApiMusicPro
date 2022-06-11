@@ -3,8 +3,9 @@
 namespace WebApiMusicPro.Models
 {
     public class Usuario
-    {   [Key]
-        public int   idUsuario { get; set; }
+    {
+        [Key]
+        public int idUsuario { get; set; }
 
         public string Rut { get; set; }
 

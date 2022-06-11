@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApiMusicPro.Data;
 using WebApiMusicPro.Models;
@@ -25,10 +20,10 @@ namespace WebApiMusicPro.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Venta>>> GetVenta()
         {
-          if (_context.Venta == null)
-          {
-              return NotFound();
-          }
+            if (_context.Venta == null)
+            {
+                return NotFound();
+            }
             return await _context.Venta.ToListAsync();
         }
 
@@ -36,10 +31,10 @@ namespace WebApiMusicPro.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Venta>> GetVenta(int id)
         {
-          if (_context.Venta == null)
-          {
-              return NotFound();
-          }
+            if (_context.Venta == null)
+            {
+                return NotFound();
+            }
             var venta = await _context.Venta.FindAsync(id);
 
             if (venta == null)
@@ -86,10 +81,10 @@ namespace WebApiMusicPro.Controllers
         [HttpPost]
         public async Task<ActionResult<Venta>> PostVenta(Venta venta)
         {
-          if (_context.Venta == null)
-          {
-              return Problem("Entity set 'WebApiMusicProContext.Venta'  is null.");
-          }
+            if (_context.Venta == null)
+            {
+                return Problem("Entity set 'WebApiMusicProContext.Venta'  is null.");
+            }
             _context.Venta.Add(venta);
             await _context.SaveChangesAsync();
 

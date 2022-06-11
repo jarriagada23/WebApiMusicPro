@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApiMusicPro.Data;
 using WebApiMusicPro.Models;
@@ -25,10 +20,10 @@ namespace WebApiMusicPro.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DetalleVenta>>> GetDetalleVenta()
         {
-          if (_context.DetalleVenta == null)
-          {
-              return NotFound();
-          }
+            if (_context.DetalleVenta == null)
+            {
+                return NotFound();
+            }
             return await _context.DetalleVenta.ToListAsync();
         }
 
@@ -36,10 +31,10 @@ namespace WebApiMusicPro.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<DetalleVenta>> GetDetalleVenta(int id)
         {
-          if (_context.DetalleVenta == null)
-          {
-              return NotFound();
-          }
+            if (_context.DetalleVenta == null)
+            {
+                return NotFound();
+            }
             var detalleVenta = await _context.DetalleVenta.FindAsync(id);
 
             if (detalleVenta == null)
@@ -86,10 +81,10 @@ namespace WebApiMusicPro.Controllers
         [HttpPost]
         public async Task<ActionResult<DetalleVenta>> PostDetalleVenta(DetalleVenta detalleVenta)
         {
-          if (_context.DetalleVenta == null)
-          {
-              return Problem("Entity set 'WebApiMusicProContext.DetalleVenta'  is null.");
-          }
+            if (_context.DetalleVenta == null)
+            {
+                return Problem("Entity set 'WebApiMusicProContext.DetalleVenta'  is null.");
+            }
             _context.DetalleVenta.Add(detalleVenta);
             await _context.SaveChangesAsync();
 

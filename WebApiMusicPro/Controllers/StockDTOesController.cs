@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApiMusicPro.Data;
 using WebApiMusicPro.Models;
@@ -25,16 +20,16 @@ namespace WebApiMusicPro.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<StockDTO>>> GetStockDTO()
         {
-         List<StockDTO> listaStockDTO = new List<StockDTO>();
+            List<StockDTO> listaStockDTO = new List<StockDTO>();
 
             var listaStock = await _context.Stock.Join(
 
                         _context.Producto,
                         stock => stock.idProductostock,
                         producto => producto.idProducto,
-                        (stock, producto) => new 
+                        (stock, producto) => new
                         {
-                            idStock= stock.idStock,
+                            idStock = stock.idStock,
                             total_prod = stock.total_prod,
                             bodega = stock.bodega,
                             idProductostock = stock.idProductostock,
@@ -43,32 +38,32 @@ namespace WebApiMusicPro.Controllers
                         }
                         ).ToListAsync();
 
-                        foreach (var stock in listaStock)
-                        {
-                            StockDTO stockDTO = new StockDTO();
+            foreach (var stock in listaStock)
+            {
+                StockDTO stockDTO = new StockDTO();
 
-                            stockDTO.idStock = stock.idStock;
-                            stockDTO.total_prod = stock.total_prod;
-                            stockDTO.bodega = stock.bodega;
-                            stockDTO.idProductostock = stock.idProductostock;
-                            stockDTO.nombreProducto = stock.nombreproducto;
+                stockDTO.idStock = stock.idStock;
+                stockDTO.total_prod = stock.total_prod;
+                stockDTO.bodega = stock.bodega;
+                stockDTO.idProductostock = stock.idProductostock;
+                stockDTO.nombreProducto = stock.nombreproducto;
 
-                                listaStockDTO.Add(stockDTO);
-                        }
+                listaStockDTO.Add(stockDTO);
+            }
 
-                        return listaStockDTO;
+            return listaStockDTO;
 
-                
+
         }
 
         // GET: api/StockDTOes/5
         [HttpGet("{id}")]
         public async Task<ActionResult<StockDTO>> GetStockDTO(int id)
         {
-          if (_context.StockDTO == null)
-          {
-              return NotFound();
-          }
+            if (_context.StockDTO == null)
+            {
+                return NotFound();
+            }
             var stockDTO = await _context.StockDTO.FindAsync(id);
 
             if (stockDTO == null)
@@ -115,10 +110,10 @@ namespace WebApiMusicPro.Controllers
         [HttpPost]
         public async Task<ActionResult<StockDTO>> PostStockDTO(StockDTO stockDTO)
         {
-          if (_context.StockDTO == null)
-          {
-              return Problem("Entity set 'WebApiMusicProContext.StockDTO'  is null.");
-          }
+            if (_context.StockDTO == null)
+            {
+                return Problem("Entity set 'WebApiMusicProContext.StockDTO'  is null.");
+            }
             _context.StockDTO.Add(stockDTO);
             await _context.SaveChangesAsync();
 

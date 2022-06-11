@@ -3,7 +3,7 @@
 namespace WebApiMusicPro.Models
 {
     public class Venta
-    {   
+    {
         [Key]
         public int idVenta { get; set; }
 

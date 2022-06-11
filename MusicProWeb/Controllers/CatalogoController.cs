@@ -5,30 +5,54 @@ using System.Net.Http.Formatting;
 
 namespace MusicProWeb.Controllers
 {
-    public class UsuariosController : Controller
-    {
 
-        public IActionResult ListarUsuarios()
+
+
+
+    public class CatalogoController : Controller
+    {
+        public IActionResult Index()
         {
-            var listado = new List<Usuario>();
+            var listado = new List<Producto>();
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:7093/");
 
-            var request = client.GetAsync("api/Usuarios").Result;
+            var request = client.GetAsync("api/Productos").Result;
 
             if (request.IsSuccessStatusCode)
             {
                 var result = request.Content.ReadAsStringAsync().Result;
-                listado = JsonConvert.DeserializeObject<List<Usuario>>(result);
+                listado = JsonConvert.DeserializeObject<List<Producto>>(result);
             }
 
 
             return View(listado);
         }
 
-        [HttpGet]
+        /*
+      
+        public IActionResult Catalogo()
+        {
+           var listado = new List<Producto>();
 
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("https://localhost:7093/");
+
+            var request = client.GetAsync("api/Productos").Result;
+
+            if (request.IsSuccessStatusCode)
+            {
+                var result = request.Content.ReadAsStringAsync().Result;
+                listado = JsonConvert.DeserializeObject<List<Producto>>(result);
+            }
+
+
+            return View(listado);
+        }
+        */
+
+        [HttpGet]
         public IActionResult NuevoUsuario()
         {
 
@@ -102,15 +126,5 @@ namespace MusicProWeb.Controllers
             return RedirectToAction("ListarUsuarios");
 
         }
-
-
-
-
-
-
     }
 }
-
-
-
-
