@@ -12,29 +12,29 @@ namespace WebApiMusicPro.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StockDTOesController : ControllerBase
+    public class StockDTOController : ControllerBase
     {
         private readonly WebApiMusicProContext _context;
 
-        public StockDTOesController(WebApiMusicProContext context)
+        public StockDTOController(WebApiMusicProContext context)
         {
             _context = context;
         }
 
-        // GET: api/StockDTOes
+        // GET: api/StockDTO
         [HttpGet]
         public async Task<ActionResult<IEnumerable<StockDTO>>> GetStockDTO()
         {
-         List<StockDTO> listaStockDTO = new List<StockDTO>();
+            List<StockDTO> listaStockDTO = new List<StockDTO>();
 
             var listaStock = await _context.Stock.Join(
 
                         _context.Producto,
                         stock => stock.idProductostock,
                         producto => producto.idProducto,
-                        (stock, producto) => new 
+                        (stock, producto) => new
                         {
-                            idStock= stock.idStock,
+                            idStock = stock.idStock,
                             total_prod = stock.total_prod,
                             bodega = stock.bodega,
                             idProductostock = stock.idProductostock,
@@ -43,25 +43,24 @@ namespace WebApiMusicPro.Controllers
                         }
                         ).ToListAsync();
 
-                        foreach (var stock in listaStock)
-                        {
-                            StockDTO stockDTO = new StockDTO();
+            foreach (var stock in listaStock)
+            {
+                StockDTO stockDTO = new StockDTO();
 
-                            stockDTO.idStock = stock.idStock;
-                            stockDTO.total_prod = stock.total_prod;
-                            stockDTO.bodega = stock.bodega;
-                            stockDTO.idProductostock = stock.idProductostock;
-                            stockDTO.nombreProducto = stock.nombreproducto;
+                stockDTO.idStock = stock.idStock;
+                stockDTO.total_prod = stock.total_prod;
+                stockDTO.bodega = stock.bodega;
+                stockDTO.idProductostock = stock.idProductostock;
+                stockDTO.nombreProducto = stock.nombreproducto;
 
-                                listaStockDTO.Add(stockDTO);
-                        }
+                listaStockDTO.Add(stockDTO);
+            }
 
-                        return listaStockDTO;
+            return listaStockDTO;
 
-                
+
         }
-
-        // GET: api/StockDTOes/5
+        // GET: api/StockDTO/5
         [HttpGet("{id}")]
         public async Task<ActionResult<StockDTO>> GetStockDTO(int id)
         {
@@ -79,7 +78,7 @@ namespace WebApiMusicPro.Controllers
             return stockDTO;
         }
 
-        // PUT: api/StockDTOes/5
+        // PUT: api/StockDTO/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutStockDTO(int id, StockDTO stockDTO)
@@ -110,7 +109,7 @@ namespace WebApiMusicPro.Controllers
             return NoContent();
         }
 
-        // POST: api/StockDTOes
+        // POST: api/StockDTO
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<StockDTO>> PostStockDTO(StockDTO stockDTO)
@@ -125,7 +124,7 @@ namespace WebApiMusicPro.Controllers
             return CreatedAtAction("GetStockDTO", new { id = stockDTO.idStock }, stockDTO);
         }
 
-        // DELETE: api/StockDTOes/5
+        // DELETE: api/StockDTO/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStockDTO(int id)
         {

@@ -16,7 +16,7 @@ namespace WebApiMusicPro.Data
 
         public DbSet<WebApiMusicPro.Models.Usuario>? Usuario { get; set; }
 
-        public DbSet<WebApiMusicPro.Models.Producto>? Producto { get; set; }
+      
 
         public DbSet<WebApiMusicPro.Models.Stock>? Stock { get; set; }
 
@@ -27,6 +27,8 @@ namespace WebApiMusicPro.Data
         public DbSet<WebApiMusicPro.Models.StockDTO>? StockDTO { get; set; }
 
         public DbSet<WebApiMusicPro.Models.VentaDTO>? VentaDTO { get; set; }
+
+        public DbSet<WebApiMusicPro.Models.Producto>? Producto { get; set; }
 
         
 

@@ -1,0 +1,45 @@
+﻿@model Producto
+
+@{
+    ViewBag.Title = "Actualizar Producto";
+
+}
+<h2 style="color: #FFFFFF">Actualizar Producto </h2>
+<hr />
+
+<form method="post" style="color: #FFFFFF" action="@Url.Action("ActualizarProducto","Productos")">
+    <div class="form-group" style="display: none" >
+        <label>ID</label>
+        @Html.TextBoxFor(x=> x.idProducto, new { @class ="form-control", @readonly="readonly"})
+     </div>
+    <div class="form-group" >
+        <label>Nombre</label>
+        @Html.TextBoxFor(x=> x.nombre, new { @class ="form-control"})
+     </div>
+     <div class="form-group" >
+        <label>Marca</label>
+        @Html.TextBoxFor(x=> x.marca, new { @class ="form-control"})
+     </div>
+     <div class="form-group" >
+        <label>Modelo</label>
+        @Html.TextBoxFor(x=> x.modelo, new { @class ="form-control"})
+     </div>
+     <div class="form-group" >
+        <label>Categoria</label>
+        @Html.TextBoxFor(x=> x.categoria, new { @class ="form-control"})
+     </div>
+     <div class="form-group" >
+        <label>Link Imagen</label>
+        @Html.TextBoxFor(x=> x.imagen, new { @class ="form-control"})
+     </div>
+     <div class="form-group" >
+        <label>Precio</label>
+        @Html.TextBoxFor(x=> x.precio, new { @class ="form-control"})
+     </div>
+     <hr />
+     <div class="form-group" >
+        <input type="submit" class="btn btn-success" value="Enviar" />
+        <a class="btn btn-primary " href="@Url.Action("ListarProductos","Productos")">Regresar</a>
+     </div>
+
+</form>

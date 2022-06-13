@@ -1,0 +1,41 @@
+﻿@model Producto
+@{
+    ViewData["Title"] = "Detalle Producto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="color: #FFFFFF">Detalle Producto </h2>
+<hr />
+
+
+    <div class="form-group" >
+        <label  style="color: #FFFFFF">Nombre:</label>
+      <label  style="color: #FFFFFF">@Model.nombre</label>
+     </div>
+     <div class="form-group" >
+        <label  style="color: #FFFFFF">Marca:</label>
+        <label  style="color: #FFFFFF">@Model.marca</label>
+     </div>
+     <div class="form-group" >
+        <label style="color: #FFFFFF">Modelo:</label>
+       <label style="color: #FFFFFF">@Model.modelo</label>
+     </div>
+     <div class="form-group" >
+        <label style="color: #FFFFFF">Categoria:</label>
+       <label style="color: #FFFFFF">@Model.categoria</label> 
+     </div>
+     <div class="form-group" >
+        <label style="color: #FFFFFF">Precio:</label>
+      <label style="color: #FFFFFF">@Model.precio</label> 
+     </div>
+     <div class="form-group" >
+        <label style="color: #FFFFFF">Imagen:</label>
+        <hr />
+        <img src=@Model.imagen height="150px" width="150px"/>
+     </div>
+     
+     <hr />
+     <div class="form-group" >
+        <a class="btn btn-primary " href="@Url.Action("ListarProductos","Productos")">Regresar</a>
+     </div>
+

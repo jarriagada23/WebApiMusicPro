@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApiMusicPro.Models
+namespace MusicProWeb.Models
 {
     public class Producto
     {

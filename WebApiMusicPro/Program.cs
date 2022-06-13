@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using WebApiMusicPro.Data;
+using WebApiMusicPro.Controllers;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<WebApiMusicProContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("WebApiMusicProContext") ?? throw new InvalidOperationException("Connection string 'WebApiMusicProContext' not found.")));
@@ -26,5 +27,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
 
 app.Run();
