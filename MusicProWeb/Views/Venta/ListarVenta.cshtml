@@ -1,0 +1,41 @@
+﻿@model List<VentaDTO>
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="h5 font-weight-bold text-center mb-3" style="color: #FFFFFF">Ventas</div>
+        <div class="card-body">
+            <a href="@Url.Action("NuevaVenta","Venta")" class="btn btn-primary mb-3"><i class="bi bi-plus-circle"></i> Crear Nueva</a>
+            <hr />
+            <table style="color: #FFFFFF" class="table table-responsive ">
+                <thead>
+                    <tr>
+                    
+                        <th>ID_Venta</th>
+                        <th>ID_Usuario</th>
+                        <th>Nombre Usuario</th>
+                        <th>Total</th>
+                        <th>Fecha Compra</th>                       
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.idVenta</td>
+                        <td>@item.idUsuario</td>
+                        <td>@item.nombreUsuario</td>
+                        <td>$@item.total</td>
+                        <td>@item.fecha.ToString("d")</td>                      
+                        <td>
+                            <a href="@Url.Action("ActualizarVenta","Venta",new {id=item.idVenta })" class="btn btn-success  ">Actualizar</a>
+                           <a href="@Url.Action("EliminarVenta","Venta",new {id = item.idVenta })" class="btn btn-danger ">Eliminar</a>
+                        </td>
+                    </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>

@@ -1,0 +1,33 @@
+﻿@model Venta
+
+@{
+    ViewBag.Title = "Actualizar Venta";
+
+}
+<h2 style="color: #FFFFFF">Actualizar Venta </h2>
+<hr />
+
+<form method="post" style="color: #FFFFFF" action="@Url.Action("ActualizarVenta","Venta")">
+    <div class="form-group" style="display: none" >
+        <label>ID</label>
+        @Html.TextBoxFor(x=> x.idVenta, new { @class ="form-control", @readonly="readonly"})
+     </div>
+    <div class="form-group" >
+        <label>ID Usuario</label>
+        @Html.TextBoxFor(x=> x.idUsuario, new { @class ="form-control"})
+     </div>
+     <div class="form-group" >
+        <label>Total</label>
+        @Html.TextBoxFor(x=> x.total, new { @class ="form-control"})
+     </div>
+     <div class="form-group" >
+        <label>Fecha</label>
+        @Html.TextBoxFor(x=> x.fecha, new { @class ="form-control"})
+        </div>
+     <hr />
+     <div class="form-group" >
+        <input type="submit" class="btn btn-success" value="Enviar" />
+        <a class="btn btn-primary " href="@Url.Action("ListarVenta","Venta")">Regresar</a>
+     </div>
+
+</form>

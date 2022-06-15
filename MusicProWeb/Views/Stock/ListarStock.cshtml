@@ -1,0 +1,41 @@
+﻿@model List<StockDTO>
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="h5 font-weight-bold text-center mb-3" style="color: #FFFFFF">Stock</div>
+        <div class="card-body">
+            <a href="@Url.Action("NuevoStock","Stock")" class="btn btn-primary mb-3"><i class="bi bi-plus-circle"></i> Crear Nuevo</a>
+            <hr />
+            <table style="color: #FFFFFF" class="table table-responsive ">
+                <thead>
+                    <tr>
+                    
+                        <th>ID_STOCK</th>
+                        <th>ID_Producto</th>
+                        <th>Nombre</th>
+                        <th>Cantidad</th>
+                        <th>Bodega</th>                       
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.idStock</td>
+                        <td>@item.idProductostock</td>
+                        <td>@item.nombreProducto</td>
+                        <td>@item.total_prod</td>
+                        <td>@item.bodega</td>                      
+                        <td>
+                            <a href="@Url.Action("ActualizarStock","Stock",new {id=item.idStock })" class="btn btn-success  ">Actualizar</a>
+                           <a href="@Url.Action("EliminarStock","Stock",new {id = item.idStock })" class="btn btn-danger ">Eliminar</a>
+                        </td>
+                    </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
