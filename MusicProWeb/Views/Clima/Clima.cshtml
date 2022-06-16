@@ -1,0 +1,41 @@
+﻿@model List<Clima>
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="h5 font-weight-bold text-center mb-3" style="color: #FFFFFF">Listar Monedas</div>
+        <div class="card-body">           
+            <hr />
+            <table style="color: #FFFFFF" class="table table-responsive ">
+                <thead>
+                    <tr>
+                    
+                        <th>Codigo</th>
+                        <th>Estacion</th>
+                        <th>HoraUpdate</th>
+                        <th>Temperatura</th>
+                        <th>Humedad</th>
+                        <th>Estado</th>   
+                          
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.Codigo</td>
+                        <td>@item.Estacion</td>
+                        <td>@item.HoraUpdate</td>
+                        <td>@item.Temp</td>
+                        <td>@item.Humedad</td>
+                        <td>@item.Estado</td>
+                        
+                       
+                       
+                    </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
