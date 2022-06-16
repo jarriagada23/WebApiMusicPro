@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApiMusicPro.Models
+namespace MusicProWeb.Models
 {
     public class Venta
-    {   
+    {
         [Key]
         public int idVenta { get; set; }
 

@@ -10,8 +10,7 @@ namespace WebApiMusicPro.Models
         public string marca { get; set; }
         public string modelo { get; set; }
         public string categoria { get; set; }
+        public string imagen { get; set; }
         public int precio { get; set; }
-
-
     }
 }

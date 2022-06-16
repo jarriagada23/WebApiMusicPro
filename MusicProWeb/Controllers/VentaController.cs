@@ -1,48 +1,46 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using MusicProWeb.Models;
+using Newtonsoft.Json;
 using System.Net.Http.Formatting;
 
 namespace MusicProWeb.Controllers
 {
-    public class UsuariosController : Controller
-    {   
-        
-        public IActionResult ListarUsuarios()
-        {   
-            var listado = new List<Usuario>();
+    public class VentaController : Controller
+    {
+        public IActionResult ListarVenta()
+        {
+            var listado = new List<VentaDTO>();
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:7093/");
 
-            var request = client.GetAsync("api/Usuarios").Result;
+            var request = client.GetAsync("api/VentaDTO").Result;
 
             if (request.IsSuccessStatusCode)
             {
                 var result = request.Content.ReadAsStringAsync().Result;
-                listado = JsonConvert.DeserializeObject<List<Usuario>>(result);
+                listado = JsonConvert.DeserializeObject<List<VentaDTO>>(result);
             }
 
 
             return View(listado);
         }
-
         [HttpGet]
 
-        public IActionResult NuevoUsuario()
+        public IActionResult NuevaVenta()
         {
-                
+
             return View();
-        
+
         }
         [HttpPost]
-        public IActionResult NuevoUsuario(Usuario usuario)
+        public IActionResult NuevaVenta(Venta venta)
         {
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:7093/");
 
-            var request = client.PostAsync("api/Usuarios", usuario, new JsonMediaTypeFormatter()).Result;
+            var request = client.PostAsync("api/Ventas", venta, new JsonMediaTypeFormatter()).Result;
 
             if (request.IsSuccessStatusCode)
             {
@@ -51,27 +49,27 @@ namespace MusicProWeb.Controllers
 
                 if (_user != null)
                 {
-                    return RedirectToAction("ListarUsuarios");
+                    return RedirectToAction("ListarVenta");
 
                 }
-                return View(usuario);
+                return View(venta);
             }
-            return View(usuario);
+            return View(venta);
 
         }
         [HttpGet]
 
-        public IActionResult ActualizarUsuario(int id)
+        public IActionResult ActualizarVenta(int id)
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:7093/");
 
-            var request = client.GetAsync("api/Usuarios/" + id).Result;
+            var request = client.GetAsync("api/Ventas/" + id).Result;
 
             if (request.IsSuccessStatusCode)
             {
                 var result = request.Content.ReadAsStringAsync().Result;
-                var _user = JsonConvert.DeserializeObject<Usuario>(result);
+                var _user = JsonConvert.DeserializeObject<Venta>(result);
                 return View(_user);
             }
 
@@ -79,38 +77,28 @@ namespace MusicProWeb.Controllers
 
         }
         [HttpPost]
-        public IActionResult ActualizarUsuario(int id ,Usuario usuario)
+        public IActionResult ActualizarVenta(int id, Venta venta)
         {
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:7093/");
-            var request = client.PutAsync("api/Usuarios/"+id, usuario, new JsonMediaTypeFormatter()).Result;
+            var request = client.PutAsync("api/Ventas/" + id, venta, new JsonMediaTypeFormatter()).Result;
 
-               
-            return RedirectToAction("ListarUsuarios");
+
+            return RedirectToAction("ListarVenta");
 
         }
-
         [HttpGet]
 
-        public IActionResult EliminarUsuario(int id)
+        public IActionResult EliminarVenta(int id)
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:7093/");
 
-            var request = client.DeleteAsync("api/Usuarios/" + id).Result;
-            return RedirectToAction("ListarUsuarios");
+            var request = client.DeleteAsync("api/Ventas/" + id).Result;
+            return RedirectToAction("ListarVenta");
 
-        }               
-            
-
-      
-
-        
-
+        }
     }
 }
-
-
-
 

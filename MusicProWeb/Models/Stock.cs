@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApiMusicPro.Models
+namespace MusicProWeb.Models
 {
     public class Stock
     {
@@ -13,7 +13,6 @@ namespace WebApiMusicPro.Models
 
         public int idProductostock { get; set; }
 
-       
-     
+
     }
 }

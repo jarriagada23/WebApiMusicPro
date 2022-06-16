@@ -1,31 +1,31 @@
-{
+﻿{
   "$schema": "https://json.schemastore.org/launchsettings.json",
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:50950/",
-      "sslPort": 44308
+      "applicationUrl": "http://localhost:21099",
+      "sslPort": 44330
     }
   },
   "profiles": {
     "WebApiMusicPro": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "api/Usuarios",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "https://localhost:7093;http://localhost:5093",
-      "dotnetRunMessages": true
+        "commandName": "Project",
+        "dotnetRunMessages": true,
+        "launchBrowser": true,
+        "launchUrl": "api/Usuarios",
+        "applicationUrl": "https://localhost:7093;http://localhost:5093",
+        "environmentVariables": {
+            "ASPNETCORE_ENVIRONMENT": "Development"
+        }
     },
     "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "launchUrl": "api/Usuarios",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+        "commandName": "IISExpress",
+        "launchBrowser": true,
+        "launchUrl": "api/Usuarios",
+        "environmentVariables": {
+            "ASPNETCORE_ENVIRONMENT": "Development"
+        }
     }
   }
 }

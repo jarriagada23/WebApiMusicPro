@@ -1,0 +1,32 @@
+﻿@model List<Producto>
+@{
+    ViewData["Title"] = "Listar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    <div class="h5 font-weight-bold text-center mb-3" style="color: #FFFFFF">Lista de Productos MusicPro</div>
+
+        
+            <div class="row row-cols-lg-3">
+                @foreach (var item in Model){
+        <div class="col">
+            <div class="card m-2 border border-success h-200 mx-3">
+                <div class="card-body">
+
+                    <img src=@item.imagen class="card-img-top" alt="...">
+                    <hr>
+                    <h5 class="card-title"> <b>@item.nombre</b> </h5>
+                    <p class="card-text"> <i>@item.marca</i> </p>
+                    <b class="card-text">$@item.precio</b>
+                    <hr/>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="@Url.Action("DetalleProducto","Productos",new {id = item.idProducto })" class="btn btn-success mx-2">Ver Detalles</a>
+                        </div>
+                        <a href="#" class="btn btn-success">Agregar a carrito</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+         }
+    </div>

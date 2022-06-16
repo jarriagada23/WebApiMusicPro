@@ -12,55 +12,55 @@ namespace WebApiMusicPro.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VentasController : ControllerBase
+    public class ProductoController : ControllerBase
     {
         private readonly WebApiMusicProContext _context;
 
-        public VentasController(WebApiMusicProContext context)
+        public ProductoController(WebApiMusicProContext context)
         {
             _context = context;
         }
 
-        // GET: api/Ventas
+        // GET: api/Producto
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Venta>>> GetVenta()
+        public async Task<ActionResult<IEnumerable<Producto>>> GetProducto()
         {
-          if (_context.Venta == null)
+          if (_context.Producto == null)
           {
               return NotFound();
           }
-            return await _context.Venta.ToListAsync();
+            return await _context.Producto.ToListAsync();
         }
 
-        // GET: api/Ventas/5
+        // GET: api/Producto/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Venta>> GetVenta(int id)
+        public async Task<ActionResult<Producto>> GetProducto(int id)
         {
-          if (_context.Venta == null)
+          if (_context.Producto == null)
           {
               return NotFound();
           }
-            var venta = await _context.Venta.FindAsync(id);
+            var producto = await _context.Producto.FindAsync(id);
 
-            if (venta == null)
+            if (producto == null)
             {
                 return NotFound();
             }
 
-            return venta;
+            return producto;
         }
 
-        // PUT: api/Ventas/5
+        // PUT: api/Producto/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutVenta(int id, Venta venta)
+        public async Task<IActionResult> PutProducto(int id, Producto producto)
         {
-            if (id != venta.idVenta)
+            if (id != producto.idProducto)
             {
                 return BadRequest();
             }
 
-            _context.Entry(venta).State = EntityState.Modified;
+            _context.Entry(producto).State = EntityState.Modified;
 
             try
             {
@@ -68,7 +68,7 @@ namespace WebApiMusicPro.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!VentaExists(id))
+                if (!ProductoExists(id))
                 {
                     return NotFound();
                 }
@@ -81,44 +81,44 @@ namespace WebApiMusicPro.Controllers
             return NoContent();
         }
 
-        // POST: api/Ventas
+        // POST: api/Producto
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Venta>> PostVenta(Venta venta)
+        public async Task<ActionResult<Producto>> PostProducto(Producto producto)
         {
-          if (_context.Venta == null)
+          if (_context.Producto == null)
           {
-              return Problem("Entity set 'WebApiMusicProContext.Venta'  is null.");
+              return Problem("Entity set 'WebApiMusicProContext.Producto'  is null.");
           }
-            _context.Venta.Add(venta);
+            _context.Producto.Add(producto);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetVenta", new { id = venta.idVenta }, venta);
+            return CreatedAtAction("GetProducto", new { id = producto.idProducto }, producto);
         }
 
-        // DELETE: api/Ventas/5
+        // DELETE: api/Producto/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteVenta(int id)
+        public async Task<IActionResult> DeleteProducto(int id)
         {
-            if (_context.Venta == null)
+            if (_context.Producto == null)
             {
                 return NotFound();
             }
-            var venta = await _context.Venta.FindAsync(id);
-            if (venta == null)
+            var producto = await _context.Producto.FindAsync(id);
+            if (producto == null)
             {
                 return NotFound();
             }
 
-            _context.Venta.Remove(venta);
+            _context.Producto.Remove(producto);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool VentaExists(int id)
+        private bool ProductoExists(int id)
         {
-            return (_context.Venta?.Any(e => e.idVenta == id)).GetValueOrDefault();
+            return (_context.Producto?.Any(e => e.idProducto == id)).GetValueOrDefault();
         }
     }
 }

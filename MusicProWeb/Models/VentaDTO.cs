@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApiMusicPro.Models
+
+namespace MusicProWeb.Models
 {
-    public class Venta
-    {   
+    public class VentaDTO
+    {
         [Key]
         public int idVenta { get; set; }
 
@@ -13,5 +14,6 @@ namespace WebApiMusicPro.Models
 
         public DateTime fecha { get; set; }
 
+        public string nombreUsuario { get; set; }
     }
 }

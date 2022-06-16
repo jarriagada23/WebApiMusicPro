@@ -1,0 +1,82 @@
+﻿@model MusicProWeb.Models.Carrito
+@{
+    ViewData["Title"] = "";
+    
+}
+<h1>@Html.DisplayNameFor(model=> model.idCarrito)</h1>
+
+
+
+<div class="container my-5">
+    <div class ="row">
+        <div class="col-sm-12">
+            <div class="card"> 
+                <div class="card-body">
+                    <div class ="row">
+                        <!--detalle de producto-->
+                        <div class="col-sm-9">
+                            <div class="me-2">
+                                <div class="d-flex justify-content-between">
+                                    <h5 class=ms-2 mt-2>Detalle Carrito</h5>
+                                    
+                                     <a class="btn btn-primary" asp-area="" asp-controller="Productos" asp-action="ListarProductos">Seguir comprando</a>
+                                </div>
+                                <hr class="mt-2 mb-2">
+                                <div id="Productos-carrito">
+                                    <div class="card mb-2 card-producto">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-2 aling-self-center d-flex justify-content-center">
+
+                                                    
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--recepcion-->
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <div class="card-body bg-light">
+                                    <h5 class="card-title">detalle de envio</h5>
+                                    <form>
+                                        <div class="mb-2">
+                                            <label for=exampleImputEmail1 class="form-label">Region</label>
+                                            <input type="text" class="form-control form-control-sm" id="txtRegion" autocomplete="on" />
+
+                                        </div>
+                                        <div class="mb-2">
+                                            <label for=exampleImputEmail1 class="form-label">direccion</label>
+                                            <input type="text" class="form-control form-control-sm" id="txtdireccion" autocomplete="on" />
+
+                                        </div>
+                                        <div class="mb-2">
+                                            <label for=exampleImputEmail1 class="form-label">Correo</label>
+                                            <input type="text" class="form-control form-control-sm" id="txtCorreo" autocomplete="on" />
+                                        </div>
+                                        <div class="d-grid">
+                                            <button class="btn btn-success" type="button" onclick="realziarPago()">
+                                                <i class="fab fa-paypal"></i> terminar y procesar págo
+                                            </button>
+                                        </div>                                      
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        function listar region
+    </script>
+}
