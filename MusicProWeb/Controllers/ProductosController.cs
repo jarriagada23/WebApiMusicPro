@@ -14,6 +14,8 @@ namespace MusicProWeb.Controllers
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:44330/");
 
+
+            try {  
             var request = client.GetAsync("api/Producto").Result;
 
             if (request.IsSuccessStatusCode)
@@ -24,6 +26,11 @@ namespace MusicProWeb.Controllers
 
 
             return View(listado);
+            }
+            catch
+            {
+                return Redirect("Home/Error");
+            }
         }
         [HttpGet]
 
