@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using MusicProWeb.Models;
 using System.Net.Http.Formatting;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MusicProWeb.Controllers
 {
@@ -31,7 +32,7 @@ namespace MusicProWeb.Controllers
 
         public IActionResult NuevoUsuario()
         {
-                
+            Combobox();    
             return View();
         
         }
@@ -63,6 +64,7 @@ namespace MusicProWeb.Controllers
 
         public IActionResult ActualizarUsuario(int id)
         {
+            Combobox();
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:44330/");
 
@@ -101,14 +103,29 @@ namespace MusicProWeb.Controllers
             var request = client.DeleteAsync("api/Usuarios/" + id).Result;
             return RedirectToAction("ListarUsuarios");
 
-        }               
-            
+        } 
+        public void Combobox()
+        {
+            List<SelectListItem> lst = new List<SelectListItem>();
 
-      
+            lst.Add(new SelectListItem() { Text = "admin", Value = "admin" });
+            lst.Add(new SelectListItem() { Text = "bodeguero", Value = "bodeguero" });
+            lst.Add(new SelectListItem() { Text = "contador", Value = "contador" });
+            lst.Add(new SelectListItem() { Text = "cliente", Value = "cliente" });
+
+            ViewBag.Opciones = lst;
+            
+        }
 
         
 
-    }
+           
+
+
+
+
+
+        }
 }
 
 
