@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
+//Creacion Clase Usuario 
 namespace WebApiMusicPro.Models
 {
     public class Usuario

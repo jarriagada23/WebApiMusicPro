@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
+//Creacion Clase Detalle Venta DTO
 namespace WebApiMusicPro.Models
 {
     public class DetalleVentaDTO

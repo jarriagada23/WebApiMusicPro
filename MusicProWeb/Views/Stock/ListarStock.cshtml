@@ -6,6 +6,7 @@
 
     <div class="h5 font-weight-bold text-center mb-3" style="color: #FFFFFF">Stock</div>
         <div class="card-body">
+            <a href="@Url.Action("NuevoProducto","Productos")" class="btn btn-primary mb-3"><i class="bi bi-plus-circle"></i> Crear Nuevo Producto</a>
             <a href="@Url.Action("NuevoStock","Stock")" class="btn btn-primary mb-3"><i class="bi bi-plus-circle"></i> Crear Nuevo</a>
             <hr />
             <table style="color: #FFFFFF" class="table table-responsive ">
@@ -30,8 +31,10 @@
                         <td>@item.total_prod</td>
                         <td>@item.bodega</td>                      
                         <td>
-                            <a href="@Url.Action("ActualizarStock","Stock",new {id=item.idStock })" class="btn btn-success  ">Actualizar</a>
-                           <a href="@Url.Action("EliminarStock","Stock",new {id = item.idStock })" class="btn btn-danger ">Eliminar</a>
+                            <a href="@Url.Action("ActualizarProducto","Productos",new {id=item.idProductostock })" class="btn btn-success  ">Actualizar Producto</a>
+                            <a href="@Url.Action("ActualizarStock","Stock",new {id=item.idStock })" class="btn btn-success  ">Actualizar Stock</a>
+                           <a href="@Url.Action("EliminarProducto","Productos",new {id = item.idStock })" class="btn btn-danger ">Eliminar Producto</a>
+                           <a href="@Url.Action("EliminarStock","Stock",new {id = item.idStock })" class="btn btn-danger ">Eliminar Stock</a>
                         </td>
                     </tr>
 

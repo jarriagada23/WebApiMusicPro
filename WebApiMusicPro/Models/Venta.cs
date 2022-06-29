@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
+//Creacion Clase Venta
 namespace WebApiMusicPro.Models
 {
     public class Venta
